@@ -1,6 +1,6 @@
 **Welcome to My Academic Projects Repository!**
 
-In this repository, you'll find a compilation of the graded academic projects I undertook during my illustrious four-year journey at VIT Vellore. Each project showcases my dedication, skills, and passion for learning across various subjects.
+In this repository, you'll find a compilation of the graded academic projects I undertook during my four-year B.Tech at VIT Vellore. Each project showcases my dedication, skills, and passion for learning across various subjects.
 ***These are only the final reports of the graded projects for the full-scale implementation check for links regarding the dataset used or any other Github repositories***
 
 **1. Social Information Network Analysis:**
@@ -14,7 +14,7 @@ Delve into the captivating world of social information networks as we meticulous
 Ever wondered about the possibilities of controlling your desktop cursor using colors? Dive into the realm of Artificial Intelligence where we developed a desktop application that utilizes colors to maneuver the cursor and execute other functions. This project blends innovation with practicality, offering a glimpse into the future of human-computer interaction it is a special project prototype for specially-abled people or other accessibilities.
 
 
-**4. IoT-Based Smart Energy Management Systems:**
+**3. IoT-Based Smart Energy Management Systems:**
 *Course: IOT*
 
 An IoT-based smart energy management system utilizes sensors and connectivity to monitor and control energy usage in real time. It collects data on energy consumption and optimizes usage patterns to reduce waste and lower costs. This system enables remote monitoring and control of appliances, integrates renewable energy sources, and provides insights for efficient energy management.
