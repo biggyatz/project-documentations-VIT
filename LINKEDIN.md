@@ -52,8 +52,8 @@ Add in this order; LinkedIn pulls the preview image from each page.
 | # | Link | Title | Description |
 |---|---|---|---|
 | 1 | https://biggyatz.github.io/ | All my projects in one place | Live AI demos, code, case studies and research, with links to try each one. |
-| 2 | https://biggyatz.github.io/boston_house_pricing/ | Nepal Property Price Estimator | What is a house or plot of land worth? Built on 1,900+ real listings across 111 localities. Works in ropani-aana and bigha-kattha-dhur. |
-| 3 | https://biggyatz.github.io/Car-performance-tracking/web/ | Nepal Used Car Value Estimator | Value a used car from real listings, compare with today's showroom price, see depreciation. 68 models, ±7.7% typical error. |
+| 2 | https://biggyatz.github.io/nepal-property-price-estimator/ | Nepal Property Price Estimator | What is a house or plot of land worth? Built on 1,900+ real listings across 111 localities. Works in ropani-aana and bigha-kattha-dhur. |
+| 3 | https://biggyatz.github.io/nepal-used-car-value-estimator/web/ | Nepal Used Car Value Estimator | Value a used car from real listings, compare with today's showroom price, see depreciation. 68 models, ±7.7% typical error. |
 | 4 | https://biggyatz.github.io/MediQNet-VQA-system/ | MediQNet: Medical Visual Q&A | Ask a radiology image about modality, plane, organ or abnormality. 60.2% on the VQA-Med 2019 test set; runs on your device. |
 | 5 | https://www.linkedin.com/posts/biggyat-kumar-pandey_acca-accanepal-collaboration-activity-7483201707242573826-hLtd | AI for Finance: ACCA Nepal sessions | (keep the existing post) |
 
@@ -65,13 +65,13 @@ For each: **Name**, **Description**, **Skills**, **Project URL** (via *Add media
 
 ### Nepal Property Price Estimator
 - **Dates:** Oct 2026
-- **URL:** https://biggyatz.github.io/boston_house_pricing/
+- **URL:** https://biggyatz.github.io/nepal-property-price-estimator/
 - **Description:** A free web app that estimates the asking price of a house or land anywhere in Nepal. I collected 2,000+ public listings from 99aana.com and Hamrobazar (robots.txt-compliant, no personal data). I parsed Nepali prices and land units (crore and lakh; ropani-aana-paisa-dam and bigha-kattha-dhur) and fitted a hedonic regression across 111 localities. The app gives an estimate with a likely range, price per aana and comparable listings, and runs entirely in the browser.
 - **Skills:** Python · Web Scraping · Machine Learning · Regression Analysis · JavaScript · Data Visualization
 
 ### Nepal Used Car Value Estimator
 - **Dates:** Oct 2026 (rebuilt from my 2024 SmartInternz car-performance project)
-- **URL:** https://biggyatz.github.io/Car-performance-tracking/web/
+- **URL:** https://biggyatz.github.io/nepal-used-car-value-estimator/web/
 - **Description:** Estimates the market value of a used car in Nepal from real Hamrobazar listings and compares it with 2026 showroom prices from NepalDrives. Free-text titles are mapped to 68 make/model families, Bikram Sambat years are converted, and a regularised regression achieves a 7.7% median error on held-out listings. It shows value retained versus new and a depreciation curve.
 - **Skills:** Python · Data Cleaning · Machine Learning · Pricing Models · JavaScript
 
@@ -87,7 +87,7 @@ For each: **Name**, **Description**, **Skills**, **Project URL** (via *Add media
 - **Skills:** Data Visualization · R · JavaScript · Statistics
 
 ### Student Performance Insights
-- **URL:** https://biggyatz.github.io/CI-CD-prediction-pipelining-of-Student-Performance/
+- **URL:** https://biggyatz.github.io/student-performance-insights/
 - **Description:** An end-to-end ML pipeline (ingestion, transformation, model selection) predicting maths scores (test R² 0.88), with an explainable web app showing how each input moves the prediction. I diagnosed and fixed a dummy-variable trap in the original model.
 - **Skills:** Machine Learning · Explainable AI · Python · CI/CD
 
