@@ -3,24 +3,26 @@
 Copy-paste text for updating the LinkedIn profile so it points to the project hub.
 Every number here matches the live projects and their READMEs (October 2026).
 
-**Hub link:** https://biggyatz.github.io/
+**Hub link:** https://biggyatz.github.io/project-documentations-VIT/
+
+LinkedIn headlines are not clickable, so the headlines below point to the Featured section instead of a URL.
 
 ---
 
 ## 1. Headline (pick one, max 220 characters)
 
-**A.** AI Solutions Architect · FinTech Researcher · AI Trainer | Building data & AI systems for Nepal's capital markets | 5 live AI projects → biggyatz.github.io
+**A.** AI Solutions Architect · FinTech Researcher · AI Trainer | Building data & AI systems for Nepal's capital markets | 5 live AI projects (links in Featured)
 
-**B.** I turn manual finance work into AI pipelines | FinTech research & automation · Trained 200+ professionals (ACCA Nepal) | Live projects: biggyatz.github.io
+**B.** I turn manual finance work into AI pipelines | FinTech research & automation · Trained 200+ professionals (ACCA Nepal) | Live AI projects in Featured
 
 ---
 
 ## 2. Contact info → Website
 
-- **URL:** `https://biggyatz.github.io/`
+- **URL:** `https://biggyatz.github.io/project-documentations-VIT/`
 - **Type:** Portfolio (or "Other" with the label **Projects**)
 
-Optional: Profile → *Add profile section* → *Custom button* → **Visit website** → `https://biggyatz.github.io/`
+Optional: Profile → *Add profile section* → *Custom button* → **Visit website** → `https://biggyatz.github.io/project-documentations-VIT/`
 
 ---
 
@@ -38,8 +40,9 @@ Some things you can try right now, free and in your browser:
 🩻 MediQNet: ask questions about radiology images (would rank #5 of 18 in the VQA-Med 2019 challenge)
 ⚽ Premier League 2020/21 interactive dashboard
 🎓 Student Performance Insights: explainable ML
+🌱 Farmkart: an online store for farmers (VIT team project)
 
-Everything is in one place: https://biggyatz.github.io/
+Everything is in one place: https://biggyatz.github.io/project-documentations-VIT/
 
 Open to research, consulting and AI training work. WhatsApp is the fastest way to reach me.
 
@@ -51,7 +54,7 @@ Add in this order; LinkedIn pulls the preview image from each page.
 
 | # | Link | Title | Description |
 |---|---|---|---|
-| 1 | https://biggyatz.github.io/ | All my projects in one place | Live AI demos, code, case studies and research, with links to try each one. |
+| 1 | https://biggyatz.github.io/project-documentations-VIT/ | All my projects in one place | Live AI demos, code, case studies and research, with links to try each one. |
 | 2 | https://biggyatz.github.io/nepal-property-price-estimator/ | Nepal Property Price Estimator | What is a house or plot of land worth? Built on 1,900+ real listings across 111 localities. Works in ropani-aana and bigha-kattha-dhur. |
 | 3 | https://biggyatz.github.io/nepal-used-car-value-estimator/web/ | Nepal Used Car Value Estimator | Value a used car from real listings, compare with today's showroom price, see depreciation. 68 models, ±7.7% typical error. |
 | 4 | https://biggyatz.github.io/MediQNet-VQA-system/ | MediQNet: Medical Visual Q&A | Ask a radiology image about modality, plane, organ or abnormality. 60.2% on the VQA-Med 2019 test set; runs on your device. |
@@ -91,6 +94,12 @@ For each: **Name**, **Description**, **Skills**, **Project URL** (via *Add media
 - **Description:** An end-to-end ML pipeline (ingestion, transformation, model selection) predicting maths scores (test R² 0.88), with an explainable web app showing how each input moves the prediction. I diagnosed and fixed a dummy-variable trap in the original model.
 - **Skills:** Machine Learning · Explainable AI · Python · CI/CD
 
+### Farmkart: Online Store for Farmers
+- **Dates:** Fall 2023 (VIT, CSE3002, with Pawar Adwyait Shivaji)
+- **URL:** https://biggyatz.github.io/project-documentations-VIT/farmkart/
+- **Description:** A full-stack e-commerce site for farming essentials: seeds, flowering and fruit plants, tools and pest control, with guidance on what to sow each season. Built in PHP and MySQL; the live version is a static rebuild of the 117-product catalogue with search, filters, a cart and a simulated checkout.
+- **Skills:** PHP · MySQL · JavaScript · Web Development
+
 ---
 
 ## 6. Launch post (optional)
@@ -103,7 +112,7 @@ For each: **Name**, **Description**, **Skills**, **Project URL** (via *Add media
 >
 > Plus an interactive Premier League 2020/21 dashboard and an explainable student-performance model.
 >
-> All of them, with code and methodology: https://biggyatz.github.io/
+> All of them, with code and methodology: https://biggyatz.github.io/project-documentations-VIT/
 >
 > Which one should I build out next? 👇
 >
