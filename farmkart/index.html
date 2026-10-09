@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farmkart · Farming Essentials Store</title>
+<meta name="description" content="Farmkart: an online store for farming essentials (seeds, flowers, fruit plants, tools and pest control) with seasonal guidance. VIT web programming project, now a live static demo.">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f5f7f1; --card: #ffffff; --text: #1d2a1f; --text-2: #4d5d50; --muted: #7b8a7e;
+    --brand: #2f7d32; --brand-dark: #23602a; --brand-wash: rgba(47, 125, 50, .10); --accent: #e0a423;
+    --border: #dfe6da; --danger: #b3261e; --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --page: #111611; --card: #182018; --text: #e8eee6; --text-2: #b4c0b3; --muted: #8a978a;
+      --brand: #5cae5f; --brand-dark: #74c477; --brand-wash: rgba(92, 174, 95, .16); --accent: #e8b84a;
+      --border: #2a352a; --danger: #ef8a83; --shadow: none;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #111611; --card: #182018; --text: #e8eee6; --text-2: #b4c0b3; --muted: #8a978a;
+    --brand: #5cae5f; --brand-dark: #74c477; --brand-wash: rgba(92, 174, 95, .16); --accent: #e8b84a;
+    --border: #2a352a; --danger: #ef8a83; --shadow: none;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--text); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+  header.bar { position: sticky; top: 0; z-index: 5; background: var(--card); border-bottom: 1px solid var(--border); }
+  .bar .wrap { display: flex; align-items: center; gap: 14px; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.2rem; color: var(--brand); text-decoration: none; }
+  .logo img { width: 34px; height: 34px; object-fit: contain; }
+  .search { flex: 1; max-width: 460px; margin-left: auto; }
+  .search input { width: 100%; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--page); color: inherit; font: inherit; }
+  .cart-btn { position: relative; border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 999px; padding: 9px 14px; font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; }
+  .cart-btn .n { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--brand); color: #fff; font-size: .78rem; margin-left: 6px; }
+  .demo-note { background: var(--brand-wash); color: var(--text-2); font-size: .85rem; text-align: center; padding: 8px 16px; }
+  .hero { padding: 36px 0 18px; display: grid; gap: 24px; grid-template-columns: 1.3fr 1fr; align-items: center; }
+  .hero h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .hero p { color: var(--text-2); margin: 0 0 16px; max-width: 58ch; }
+  .season-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+  .season-card h2 { margin: 0 0 4px; font-size: 1.05rem; }
+  .season-card p { margin: 0 0 12px; color: var(--text-2); font-size: .9rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { border: 1px solid var(--border); background: var(--card); color: var(--text-2); border-radius: 999px; padding: 7px 13px; font: inherit; font-size: .88rem; cursor: pointer; }
+  .chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin: 18px 0 14px; }
+  .count { color: var(--muted); font-size: .9rem; }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  .p { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+  .p img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; padding: 10px; }
+  .p .b { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .p .cat { color: var(--muted); font-size: .75rem; text-transform: capitalize; }
+  .p .nm { font-weight: 600; font-size: .92rem; }
+  .p .row { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 8px; }
+  .price { font-weight: 800; }
+  .season { display: inline-block; font-size: .72rem; background: var(--brand-wash); color: var(--brand-dark); border-radius: 999px; padding: 2px 8px; text-transform: capitalize; width: fit-content; }
+  .add { border: 0; background: var(--brand); color: #fff; font: inherit; font-weight: 600; font-size: .85rem; border-radius: 9px; padding: 7px 12px; cursor: pointer; }
+  .add:hover { background: var(--brand-dark); }
+  .oos { color: var(--danger); font-size: .82rem; font-weight: 600; }
+  .empty { color: var(--text-2); padding: 30px 0; text-align: center; }
+  .drawer { position: fixed; inset: 0 0 0 auto; width: min(420px, 100%); background: var(--card); border-left: 1px solid var(--border); z-index: 10; display: flex; flex-direction: column; transform: translateX(100%); transition: transform .2s ease; box-shadow: -10px 0 40px rgba(0,0,0,.12); }
+  .drawer.open { transform: none; }
+  .drawer header { display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; border-bottom: 1px solid var(--border); }
+  .drawer h2 { margin: 0; font-size: 1.1rem; }
+  .x { border: 0; background: transparent; color: var(--text-2); font-size: 1.4rem; cursor: pointer; }
+  .items { flex: 1; overflow: auto; padding: 8px 18px; }
+  .it { display: grid; grid-template-columns: 52px 1fr auto; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .it img { width: 52px; height: 52px; object-fit: contain; background: #fff; border-radius: 8px; }
+  .qty { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+  .qty button { width: 26px; height: 26px; border-radius: 7px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; }
+  .drawer footer { padding: 16px 18px; border-top: 1px solid var(--border); display: grid; gap: 10px; }
+  .total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.05rem; }
+  .checkout { border: 0; background: var(--brand); color: #fff; font: inherit; font-weight: 700; border-radius: 10px; padding: 12px; cursor: pointer; }
+  .checkout:disabled { opacity: .5; cursor: not-allowed; }
+  .scrim { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 9; display: none; }
+  .scrim.show { display: block; }
+  .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--page); padding: 10px 16px; border-radius: 10px; font-size: .9rem; z-index: 20; display: none; }
+  section.about { margin: 40px 0 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .about .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; }
+  .about h3 { margin: 0 0 6px; font-size: 1rem; }
+  .about p, .about li { color: var(--text-2); font-size: .9rem; margin: 0; }
+  .about ul { margin: 0; padding-left: 18px; }
+  footer.site { color: var(--muted); font-size: .85rem; text-align: center; padding: 34px 16px 40px; }
+  footer.site a, .about a { color: var(--brand); }
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+  @media (max-width: 760px) { .hero { grid-template-columns: 1fr; } .bar .wrap { height: auto; padding: 10px 16px; flex-wrap: wrap; } .search { order: 3; max-width: none; flex-basis: 100%; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="img/logo.png" alt="">Farmkart</a>
+    <label class="search"><input id="q" type="search" placeholder="Search seeds, tools, fertiliser…" aria-label="Search products"></label>
+    <button class="cart-btn" id="open-cart" type="button">🛒 Cart<span class="n" id="cart-n">0</span></button>
+  </div>
+</header>
+<div class="demo-note">Live demo of a university project. Browse and fill the cart freely; checkout is simulated and no payment or personal data is collected.</div>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Everything a farm needs, in one place</h1>
+      <p>Farmkart is an online store for farming essentials: seeds, flowering plants, fruit plants, tools and pest control, with guidance on what to sow each season. Built as a full-stack PHP and MySQL web app; this page is its live catalogue.</p>
+      <div class="chips" id="cats" role="group" aria-label="Category"></div>
+    </div>
+    <div class="season-card">
+      <h2>🌱 What to sow this season</h2>
+      <p>Seasonal guidance from the store's product data: pick a season to see what to plant.</p>
+      <div class="chips" id="seasons" role="group" aria-label="Season"></div>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <span class="count" id="count"></span>
+    <label class="count">Sort <select id="sort" style="font:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text)">
+      <option value="name">Name</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option>
+    </select></label>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <section class="about">
+    <div class="card">
+      <h3>About the project</h3>
+      <p>Built for CSE3002 Internet &amp; Web Programming at VIT (Fall 2023–24) by <strong>Biggyat Kumar Pandey</strong> and <strong>Pawar Adwyait Shivaji</strong>. The goal: a gateway where farmers can buy everything they need without depending on middlemen.</p>
+    </div>
+    <div class="card">
+      <h3>Original features</h3>
+      <ul>
+        <li>User registration, login and profile (PHP sessions, MySQL)</li>
+        <li>Category pages with pagination, search and stock tracking</li>
+        <li>Cart, payment gateway page and order history</li>
+        <li>Contact form with captcha; seasonal product guidance</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Read more</h3>
+      <p><a href="farmkart-report.pdf" target="_blank" rel="noopener">Project report (PDF, 22 pages)</a>: architecture, database design, modules and screenshots.<br><a href="https://github.com/adwyaitpawar/Farmkart" target="_blank" rel="noopener noreferrer">Original PHP source on GitHub</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  Static demo of the Farmkart catalogue (117 products from the app's own database). Some product images come from the open-source <a href="https://github.com/GaganGoyal-1/AgriKart" target="_blank" rel="noopener noreferrer">AgriKart</a> project. · <a href="../">← All projects by Biggyat</a>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+  <header><h2>Your cart</h2><button class="x" id="close-cart" aria-label="Close cart">×</button></header>
+  <div class="items" id="items"></div>
+  <footer>
+    <div class="total"><span>Total</span><span id="total">Rs. 0</span></div>
+    <button class="checkout" id="checkout" type="button">Place demo order</button>
+    <small style="color:var(--muted)">Demo only: no payment is taken and nothing is sent anywhere.</small>
+  </footer>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+const el = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const rs = v => "Rs. " + Math.round(v).toLocaleString("en-IN");
+let DATA, cart = {}, cat = "all", season = "", query = "";
+try { cart = JSON.parse(localStorage.getItem("farmkart-cart") || "{}"); } catch (e) { cart = {}; }
+const save = () => { try { localStorage.setItem("farmkart-cart", JSON.stringify(cart)); } catch (e) {} };
+
+fetch("products.json").then(r => r.json()).then(d => { DATA = d; init(); });
+
+function init() {
+  const cats = [["all", "All products"], ...Object.entries(DATA.categories)];
+  el("cats").innerHTML = cats.map(([k, v]) => `<button class="chip" data-cat="${k}" aria-pressed="${k === cat}">${esc(v)}</button>`).join("");
+  el("cats").addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; cat = b.dataset.cat; press("cats", b); render(); });
+  const seasons = [...new Set(DATA.products.map(p => p.season).filter(Boolean))];
+  el("seasons").innerHTML = seasons.map(s => `<button class="chip" data-s="${s}" aria-pressed="false">${s[0].toUpperCase() + s.slice(1)}</button>`).join("");
+  el("seasons").addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    season = season === b.dataset.s ? "" : b.dataset.s;
+    el("seasons").querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c.dataset.s === season)));
+    render();
+  });
+  el("q").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); render(); });
+  el("sort").addEventListener("change", render);
+  el("grid").addEventListener("click", e => { const b = e.target.closest(".add"); if (b) add(+b.dataset.id); });
+  el("open-cart").addEventListener("click", () => toggleCart(true));
+  el("close-cart").addEventListener("click", () => toggleCart(false));
+  el("scrim").addEventListener("click", () => toggleCart(false));
+  el("items").addEventListener("click", e => { const b = e.target.closest("button[data-d]"); if (!b) return; change(+b.dataset.id, +b.dataset.d); });
+  el("checkout").addEventListener("click", checkout);
+  render(); renderCart();
+}
+function press(id, btn) { el(id).querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c === btn))); }
+function render() {
+  let list = DATA.products.filter(p => (cat === "all" || p.category === cat) && (!season || p.season === season) && (!query || p.name.toLowerCase().includes(query)));
+  const s = el("sort").value;
+  list.sort((a, b) => s === "low" ? a.price - b.price : s === "high" ? b.price - a.price : a.name.localeCompare(b.name));
+  el("count").textContent = `${list.length} product${list.length === 1 ? "" : "s"}` + (season ? ` to sow in ${season}` : "");
+  el("grid").innerHTML = list.length ? list.map(p => `
+    <article class="p">
+      <img src="img/${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">
+      <div class="b">
+        <span class="cat">${esc(DATA.categories[p.category])}</span>
+        <span class="nm">${esc(p.name)}</span>
+        ${p.season ? `<span class="season">${esc(p.season)}</span>` : ""}
+        <div class="row"><span class="price">${rs(p.price)}</span>
+          ${p.stock > 0 ? `<button class="add" data-id="${p.id}">Add</button>` : `<span class="oos">Out of stock</span>`}</div>
+      </div>
+    </article>`).join("") : `<p class="empty">No products match. Try another search or season.</p>`;
+}
+function add(id) { cart[id] = (cart[id] || 0) + 1; save(); renderCart(); toast("Added to cart"); }
+function change(id, d) { cart[id] = (cart[id] || 0) + d; if (cart[id] <= 0) delete cart[id]; save(); renderCart(); }
+function renderCart() {
+  const byId = Object.fromEntries(DATA.products.map(p => [p.id, p]));
+  const ids = Object.keys(cart).filter(id => byId[id]);
+  const n = ids.reduce((a, id) => a + cart[id], 0), total = ids.reduce((a, id) => a + cart[id] * byId[id].price, 0);
+  el("cart-n").textContent = n; el("total").textContent = rs(total); el("checkout").disabled = !n;
+  el("items").innerHTML = ids.length ? ids.map(id => { const p = byId[id]; return `
+    <div class="it"><img src="img/${esc(p.image)}" alt=""><div><div style="font-weight:600;font-size:.9rem">${esc(p.name)}</div>
+      <div class="qty"><button data-id="${id}" data-d="-1" aria-label="Remove one">−</button>${cart[id]}<button data-id="${id}" data-d="1" aria-label="Add one">+</button></div></div>
+      <strong>${rs(p.price * cart[id])}</strong></div>`; }).join("") : `<p class="empty">Your cart is empty.</p>`;
+}
+function toggleCart(open) { el("drawer").classList.toggle("open", open); el("scrim").classList.toggle("show", open); el("drawer").setAttribute("aria-hidden", String(!open)); }
+function checkout() {
+  const id = "FK" + Math.floor(100000 + Math.random() * 900000);
+  cart = {}; save(); renderCart(); toggleCart(false);
+  toast(`Demo order ${id} placed. In the original app this goes to the payment page and order history.`);
+}
+let tt; function toast(msg) { const t = el("toast"); t.textContent = msg; t.style.display = "block"; clearTimeout(tt); tt = setTimeout(() => { t.style.display = "none"; }, 3200); }
+</script>
+</body>
+</html>
