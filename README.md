@@ -33,4 +33,4 @@ Feel free to explore each project and witness the culmination of my academic end
 
 ## Licence
 
-Copyright © 2024–2026 Biggyat Kumar Pandey. All rights reserved. The code is public for viewing only; see [LICENSE](LICENSE). For permission to use it, email bigyatz123@gmail.com.
+Copyright © 2024–2026 Biggyat Kumar Pandey. All rights reserved. The code is public for viewing only; see [LICENSE](LICENSE). For permission to use it, email hello@biggyatkumarpandey.com.np.
