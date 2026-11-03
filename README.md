@@ -30,3 +30,7 @@ Explore the intricate workings of microprocessors through the development of a P
 Embark on a journey into the fascinating world of cryptocurrencies with PYCHAIN, a self-made minable cryptocurrency model. Through this project, we demystify the complexities of blockchain technology and present a simplified yet comprehensive approach to understanding and implementing cryptocurrency systems.
 
 Feel free to explore each project and witness the culmination of my academic endeavors, passion for innovation, and commitment to excellence.
+
+## Licence
+
+Copyright © 2024–2026 Biggyat Kumar Pandey. All rights reserved. The code is public for viewing only; see [LICENSE](LICENSE). For permission to use it, email bigyatz123@gmail.com.
